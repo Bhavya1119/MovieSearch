@@ -1,0 +1,224 @@
+/* Import fonts */
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Define root variables for fonts */
+:root {
+  --font-roboto: "Roboto Slab", serif;
+  --font-raleway: "Raleway", sans-serif;
+}
+
+/* Body styles */
+body {
+  font-family: var(--font-roboto);
+  background-color: #1a1a1a; /* Darker background color */
+  color: #fff; /* Text color */
+  margin: 0;
+}
+
+/* Application container */
+.app {
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Heading styles */
+h1 {
+  font-size: 3.5rem; /* Larger font size */
+  letter-spacing: 2px; /* Increased letter spacing */
+  background: linear-gradient(90deg, #f9d3b4, transparent); /* Gradient text color */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: fit-content;
+}
+
+/* Search bar styles */
+.search {
+  width: 70%;
+  margin: 4rem 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 2rem; /* Increased padding */
+  border-radius: 2rem; /* Smoother border radius */
+  background: #252525; /* Darker background color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  font-size: 1.5rem;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  padding: 1rem 2rem; /* Increased padding */
+  outline: none;
+  color: #a1a1a1;
+  background: #1f1f1f; /* Slightly darker background */
+}
+
+.search img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  margin-left: 1rem; /* Added spacing between input and icon */
+}
+
+/* Empty state styles */
+.empty {
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty h2 {
+  font-size: 1.5rem; /* Larger font size */
+  color: #f9d3b4;
+  font-family: var(--font-raleway);
+}
+
+/* Container for movie items */
+.container {
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Movie card styles */
+.movie {
+  width: 320px;
+  height: 480px;
+  margin: 1.5rem;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2); /* Softer box shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+  /* Added transition for a smooth hover effect */
+}
+
+.movie div:nth-of-type(1) {
+  position: absolute;
+  padding: 16px;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+  color: #f9d3b4;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Hover effect on movie card */
+.movie:hover {
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.3); /* Enhanced box shadow */
+  transform: scale(1.05); /* Slight scaling on hover */
+}
+
+/* Image container */
+.movie div:nth-of-type(2) {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Prevent image overflow */
+}
+
+.movie div:nth-of-type(2) img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; /* Maintain image aspect ratio */
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Movie details container */
+.movie div:nth-of-type(3) {
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  padding: 16px 24px 24px 24px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.movie div:nth-of-type(3) span {
+  font-family: var(--font-raleway);
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 600; /* Bolder text */
+  color: #f0f0f0;
+}
+
+.movie div:nth-of-type(3) h3 {
+  margin-top: 5px;
+  font-family: var(--font-roboto);
+  font-size: 1.2rem; /* Larger font size */
+  color: #f9d3b4;
+}
+
+/* Hover effects on individual elements */
+.movie:hover div:nth-of-type(2) {
+  opacity: 0.8; /* Slightly transparent on hover */
+}
+
+.movie:hover div:nth-of-type(3) {
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background on hover */
+}
+
+.movie:hover div:nth-of-type(1) {
+  opacity: 1;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+  .app {
+    padding: 2rem; /* Smaller padding */
+  }
+
+  .search {
+    padding: 1rem 2rem; /* Increased padding */
+    width: 100%;
+  }
+
+  .search img {
+    width: 25px; /* Slightly smaller icon */
+    height: 25px;
+  }
+}
+
+/* Media query for even smaller screens */
+@media screen and (max-width: 400px) {
+  .app {
+    padding: 1rem; /* Minimal padding */
+  }
+
+  h1 {
+    font-size: 2.5rem; /* Smaller font size */
+  }
+
+  .container {
+    margin-top: 2rem;
+  }
+
+  .movie {
+    width: 100%; /* Full width */
+    margin: 1rem;
+  }
+}
